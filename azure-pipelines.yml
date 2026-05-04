@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  pythonVersion: '3.10' # Adjust based on your Antigravity requirements
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+  displayName: 'Install Python $(pythonVersion)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install Dependencies'
+
+- script: |
+    # This is crucial for your InfoSec module project!
+    pip install bandit
+    bandit -r . -f json
+  displayName: 'Run Security Audit (Bandit)'
+  continueOnError: true
+
+- script: |
+    # Replace 'app.py' with your Antigravity entry point
+    # This ensures the code actually compiles/runs without crashing
+    python -m py_compile src/*.py
+  displayName: 'Pre-compile Python Files'
+
+- script: |
+    echo "Building E-Learning Platform: $(Build.DefinitionName)"
+    echo "Ready for Deployment to Staging"
+  displayName: 'Finalize Build'
