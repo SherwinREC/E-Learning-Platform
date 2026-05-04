@@ -1,37 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  pythonVersion: '3.10' # Adjust based on your Antigravity requirements
+  vmImage: ubuntu-latest
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(pythonVersion)'
-  displayName: 'Install Python $(pythonVersion)'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
 - script: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install Dependencies'
-
-- script: |
-    # This is crucial for your InfoSec module project!
-    pip install bandit
-    bandit -r . -f json
-  displayName: 'Run Security Audit (Bandit)'
-  continueOnError: true
-
-- script: |
-    # Replace 'app.py' with your Antigravity entry point
-    # This ensures the code actually compiles/runs without crashing
-    python -m py_compile src/*.py
-  displayName: 'Pre-compile Python Files'
-
-- script: |
-    echo "Building E-Learning Platform: $(Build.DefinitionName)"
-    echo "Ready for Deployment to Staging"
-  displayName: 'Finalize Build'
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
