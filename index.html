@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learn Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">E-Learn</h1>
+            <nav class="nav" id="nav">
+                <button class="nav-btn" id="homeBtn"><i class="fas fa-home"></i> Home</button>
+                <button class="nav-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button class="nav-btn" id="registerBtn"><i class="fas fa-user-plus"></i> Register</button>
+                <button class="nav-btn" id="dashboardBtn" style="display:none;"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+                <button class="nav-btn logout-btn" id="logoutBtn" style="display:none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section id="home" class="section">
+                <div class="hero">
+                    <h2>Welcome to E-Learn</h2>
+                    <p>Discover, learn, and teach amazing courses online.</p>
+                    <button class="btn-primary" onclick="showRegister()">Get Started</button>
+                </div>
+            </section>
+            <section id="login" class="section" style="display:none;">
+                <div class="form-container">
+                    <h2>Login to Your Account</h2>
+                    <form id="loginForm" class="form">
+                        <div class="form-group">
+                            <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Login</button>
+                    </form>
+                    <p id="loginError" class="error"></p>
+                </div>
+            </section>
+            <section id="register" class="section" style="display:none;">
+                <div class="form-container">
+                    <h2>Create Your Account</h2>
+                    <form id="registerForm" class="form">
+                        <div class="form-group">
+                            <label for="regEmail"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="regEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" id="regPassword" placeholder="Create a password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regRole"><i class="fas fa-user-tag"></i> Role</label>
+                            <select id="regRole" required>
+                                <option value="">Select your role</option>
+                                <option value="learner">Learner</option>
+                                <option value="instructor">Instructor</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Register</button>
+                    </form>
+                    <p id="registerError" class="error"></p>
+                </div>
+            </section>
+            <section id="dashboard" class="section" style="display:none;">
+                <div id="dashboardContent"></div>
+            </section>
+            <section id="courseCreate" class="section" style="display:none;">
+                <div class="form-container">
+                    <h2>Create New Course</h2>
+                    <form id="courseForm" class="form">
+                        <div class="form-group">
+                            <label for="courseTitle"><i class="fas fa-heading"></i> Course Title</label>
+                            <input type="text" id="courseTitle" placeholder="Enter course title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseDesc"><i class="fas fa-align-left"></i> Description</label>
+                            <textarea id="courseDesc" placeholder="Describe your course" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Course</button>
+                    </form>
+                </div>
+            </section>
+            <section id="courses" class="section" style="display:none;">
+                <h2>Available Courses</h2>
+                <div id="coursesList" class="courses-grid"></div>
+            </section>
+            <section id="myCourses" class="section" style="display:none;">
+                <h2>My Courses</h2>
+                <div id="myCoursesList" class="courses-grid"></div>
+            </section>
+            <section id="progress" class="section" style="display:none;">
+                <h2>My Progress</h2>
+                <div id="progressContent" class="progress-grid"></div>
+            </section>
+            <section id="quiz" class="section" style="display:none;">
+                <div class="form-container">
+                    <h2>Course Quiz</h2>
+                    <div id="quizContent" class="quiz-content"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
