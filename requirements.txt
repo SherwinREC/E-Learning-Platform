@@ -1,0 +1,17 @@
+# Requirements
+# This is a frontend-only project. No backend packages are needed.
+# All dependencies are loaded via CDN in index.html.
+
+# -----------------------------------------------
+# Google Fonts - Roboto (300, 400, 500, 700)
+# https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap
+
+# Font Awesome 6.0.0
+# https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
+# -----------------------------------------------
+
+# Browser Requirements
+# Chrome  >= 80
+# Firefox >= 75
+# Safari  >= 13
+# Edge    >= 80
